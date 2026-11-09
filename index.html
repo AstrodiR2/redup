@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#101114">
   <link rel="icon" href="assets/ui/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <script>try{if(localStorage.getItem("redup_rules_v1")!=="1")document.documentElement.classList.add("rules-pending")}catch(e){document.documentElement.classList.add("rules-pending")}</script>
 </head>
 <body>
   <div class="bg-layer" aria-hidden="true"></div>
@@ -191,6 +192,7 @@
     <footer class="local-footer">
       REDUP · локальная версия · без реальных ставок, платежей и поддержки · данные хранятся только в браузере
       <span id="statsLine"></span>
+      <a href="#" class="rules-link" id="rulesOpen">Правила и условия</a>
       <span class="credit">made by <a href="https://t.me/IsMogEr" target="_blank" rel="noopener noreferrer">@IsMogEr</a> (telegram)</span>
     </footer>
   </main>
@@ -208,9 +210,48 @@
     </div>
   </div>
 
+  <div class="rules-gate" id="rulesGate" role="dialog" aria-modal="true" aria-labelledby="rulesTitle">
+    <div class="rules-card">
+      <div class="rules-steps" aria-hidden="true"><span class="rules-dot active"></span><span class="rules-dot"></span></div>
+
+      <section class="rules-page" data-page="1">
+        <h2 id="rulesTitle">Правила игры</h2>
+        <ol class="rules-list">
+          <li>Выбери скины из инвентаря и, если хочешь, часть баланса.</li>
+          <li>Выбери цель в каталоге «Прокачать до».</li>
+          <li>Шанс успеха = стоимость выбранного ÷ цена цели. Чем дороже цель, тем ниже шанс.</li>
+          <li>Нажми «Улучшить»: при успехе получаешь цель, при неудаче выбранное сгорает.</li>
+          <li>В маркете цены меняются каждые 5 секунд: покупай дешевле, продавай дороже.</li>
+          <li>Если скинов и монет не осталось, доступны бесплатные наборы (их число ограничено) или сброс прогресса.</li>
+        </ol>
+        <button class="rules-btn" id="rulesNext" type="button">Дальше</button>
+      </section>
+
+      <section class="rules-page" data-page="2" hidden>
+        <h2>Условия использования</h2>
+        <ul class="rules-list">
+          <li>REDUP — локальный симулятор для развлечения. Монеты и скины виртуальные: реальной стоимости у них нет, их нельзя вывести, обменять или купить за деньги.</li>
+          <li>В игре нет реальных ставок, платежей и поддержки.</li>
+          <li>Результаты случайны, прошлый исход не влияет на следующий. Игра не способ заработка.</li>
+          <li>Прогресс хранится только в твоём браузере и пропадёт при очистке данных сайта.</li>
+          <li>Проект не связан с Valve, Steam и другими правообладателями. Названия и изображения принадлежат их владельцам.</li>
+        </ul>
+        <label class="rules-check"><input type="checkbox" id="rulesAge"><span>Мне уже исполнилось 18 лет</span></label>
+        <label class="rules-check"><input type="checkbox" id="rulesAgree"><span>Я прочитал(а) правила и принимаю условия</span></label>
+        <div class="rules-actions">
+          <button class="rules-btn secondary" id="rulesBack" type="button">Назад</button>
+          <button class="rules-btn" id="rulesAccept" type="button" disabled>Принять и играть</button>
+        </div>
+      </section>
+
+      <div class="rules-credit">made by <a href="https://t.me/IsMogEr" target="_blank" rel="noopener noreferrer">@IsMogEr</a> (telegram)</div>
+    </div>
+  </div>
+
   <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
 
   <script src="js/items.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/rules.js"></script>
 </body>
 </html>
