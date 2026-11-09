@@ -1,0 +1,25 @@
+body{min-height:100vh}
+.rp-wrap{width:min(560px,100%);margin:0 auto;padding:22px 16px 40px}
+.rp-back{display:inline-block;margin-bottom:12px;color:#ff6b6b;font-size:12px;text-decoration:none}
+.rp-back[hidden]{display:none}
+.rp-brand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px}
+.rp-brand img{width:34px;height:34px;filter:drop-shadow(0 0 12px rgba(255,59,59,.4))}
+.rp-brand span{font-family:Tektur,sans-serif;font-weight:700;font-size:22px;letter-spacing:.07em;color:#fff}
+.rp-title{margin:0 0 6px;text-align:center;font-family:Tektur,sans-serif;font-size:28px;letter-spacing:.04em;text-transform:uppercase;color:#fff}
+.rp-lead{margin:0 0 18px;text-align:center;font-size:13px;color:#94959b}
+.rp-card{margin-bottom:14px;padding:18px 18px 8px;border:1px solid rgba(255,59,59,.22);border-radius:16px;background:linear-gradient(180deg,#24252b 0%,#15161a 100%);box-shadow:0 18px 50px rgba(0,0,0,.45);animation:rp-in .5s cubic-bezier(.22,1,.36,1) both}
+.rp-card:nth-of-type(2){animation-delay:.06s}
+.rp-card:nth-of-type(3){animation-delay:.12s}
+.rp-card h2{margin:0 0 12px;font-family:Tektur,sans-serif;font-size:16px;letter-spacing:.05em;text-transform:uppercase;color:#ff6b6b}
+.rp-card ol,.rp-card ul{margin:0 0 10px;padding-left:20px;font-size:13px;line-height:1.6;color:#d0d1d5}
+.rp-card li{margin-bottom:8px}
+.rp-card li::marker{color:#ff3b3b;font-weight:700}
+.rp-accept{padding-bottom:18px}
+.rp-check{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding:12px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.03);font-size:13px;color:#e6e7ea;cursor:pointer}
+.rp-check input{width:20px;height:20px;flex-shrink:0;accent-color:#ff3b3b}
+.rp-btn{width:100%;height:52px;margin-top:4px;border:0;border-radius:10px;background:linear-gradient(180deg,#ff6b6b 0%,#ff3b3b 50%,#c81e1e 100%);color:#fff;font-family:Tektur,sans-serif;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 28px rgba(255,59,59,.28),inset 0 1px 0 rgba(255,255,255,.45);transition:transform .15s,opacity .2s}
+.rp-btn:active{transform:scale(.97)}
+.rp-btn:disabled{opacity:.4;cursor:not-allowed}
+.rp-credit{margin-top:18px;text-align:center;font-size:12px;color:#a3a4aa}
+.rp-credit a{color:#ff6b6b;font-weight:600;text-decoration:none}
+@keyframes rp-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>REDUP — правила и условия</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <link rel="icon" href="assets/ui/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/rules.css?v=1">
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true"></div>
+  <main class="rp-wrap">
+    <a class="rp-back" id="rpBack" href="index.html" hidden>← На сайт</a>
+    <div class="rp-brand"><img src="assets/ui/logo.svg" alt=""><span>REDUP</span></div>
+    <h1 class="rp-title">Правила игры</h1>
+    <p class="rp-lead">Прочитай правила и условия, чтобы войти.</p>
+
+    <section class="rp-card">
+      <h2>Как играть</h2>
+      <ol>
+        <li>Выбери скины из инвентаря и, если хочешь, часть баланса.</li>
+        <li>Выбери цель в каталоге «Прокачать до».</li>
+        <li>Шанс успеха = стоимость выбранного ÷ цена цели. Чем дороже цель, тем ниже шанс.</li>
+        <li>Нажми «Улучшить»: при успехе получаешь цель, при неудаче выбранное сгорает.</li>
+        <li>В маркете цены меняются каждые 5 секунд: покупай дешевле, продавай дороже.</li>
+        <li>Если скинов и монет не осталось, доступны бесплатные наборы (их число ограничено) или сброс прогресса.</li>
+      </ol>
+    </section>
+
+    <section class="rp-card">
+      <h2>Условия использования</h2>
+      <ul>
+        <li>REDUP — локальный симулятор для развлечения. Монеты и скины виртуальные: реальной стоимости у них нет, их нельзя вывести, обменять или купить за деньги.</li>
+        <li>В игре нет реальных ставок, платежей и поддержки.</li>
+        <li>Результаты случайны, прошлый исход не влияет на следующий. Игра не способ заработка.</li>
+        <li>Прогресс хранится только в твоём браузере и пропадёт при очистке данных сайта.</li>
+        <li>Проект не связан с Valve, Steam и другими правообладателями. Названия и изображения принадлежат их владельцам.</li>
+      </ul>
+    </section>
+
+    <section class="rp-card rp-accept">
+      <label class="rp-check"><input type="checkbox" id="rpAge"><span>Мне уже исполнилось 18 лет</span></label>
+      <label class="rp-check"><input type="checkbox" id="rpAgree"><span>Я прочитал(а) правила и принимаю условия</span></label>
+      <button class="rp-btn" id="rpAccept" type="button" disabled>Принять и играть</button>
+    </section>
+
+    <div class="rp-credit">made by <a href="https://t.me/IsMogEr" target="_blank" rel="noopener noreferrer">@IsMogEr</a> (telegram)</div>
+  </main>
+
+  <script>
+  (function () {
+    var KEY = "redup_rules_v1";
+    var age = document.getElementById("rpAge");
+    var agree = document.getElementById("rpAgree");
+    var btn = document.getElementById("rpAccept");
+    var back = document.getElementById("rpBack");
+    function accepted() {
+      try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; }
+    }
+    function update() { btn.disabled = !(age.checked && agree.checked); }
+    if (accepted()) {
+      age.checked = true;
+      agree.checked = true;
+      back.hidden = false;
+      btn.textContent = "Вернуться в игру";
+    }
+    update();
+    age.addEventListener("change", update);
+    agree.addEventListener("change", update);
+    btn.addEventListener("click", function () {
+      if (btn.disabled) return;
+      try { localStorage.setItem(KEY, "1"); } catch (e) {}
+      location.replace("index.html");
+    });
+  })();
+  </script>
+</body>
+</html>
